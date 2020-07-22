@@ -16,7 +16,7 @@ enum BatteryState {
 class Battery {
   factory Battery() {
     if (_instance == null) {
-      final MethodChannel methodChannel = const MethodChannel('io.kyleyan.example/battery');
+      final MethodChannel methodChannel = const MethodChannel('example.kyleyan.io/battery');
       _instance = Battery.private(methodChannel);
     }
     return _instance;

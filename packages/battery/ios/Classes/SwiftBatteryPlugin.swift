@@ -3,7 +3,7 @@ import UIKit
 
 public class SwiftBatteryPlugin: NSObject, FlutterPlugin {
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "io.kyleyan.example/battery", binaryMessenger: registrar.messenger())
+        let channel = FlutterMethodChannel(name: "example.kyleyan.io/battery", binaryMessenger: registrar.messenger())
         let instance = SwiftBatteryPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
