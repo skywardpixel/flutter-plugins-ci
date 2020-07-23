@@ -1,13 +1,69 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
-# Orchestrate or schedule a set of jobs
+
+executors:
+  build-executor:
+    docker:
+      - image: circleci/android:api-29
+    resource_class: large
+    working_directory: ~/flutter-plugins-ci
+
+  android-executor:
+    macos:
+      xcode: 11.4.1
+
+  ios-executor:
+    macos:
+      xcode: 11.4.1
+
+commands:
+  install_flutter:
+    description:
+      Install Flutter and set up paths.
+    parameters:
+      flutter_version:
+        description: Flutter version
+        type: string
+        default: stable
+    steps:
+      - run:
+          name: Set up Flutter
+          command: |
+            echo 'export FLUTTER_HOME=${HOME}/sdks/flutter' >> $BASH_ENV
+            echo 'export FLUTTER_VERSION=<< parameters.flutter_version >>' >> $BASH_ENV
+            echo 'export FLUTTER_ROOT=${FLUTTER_HOME}' >> $BASH_ENV
+            echo 'export PATH=${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin:${HOME}/.pub-cache/bin' >> $BASH_ENV
+            source $BASH_ENV
+            git clone --branch ${FLUTTER_VERSION} https://github.com/flutter/flutter.git ${FLUTTER_HOME}
+            (yes || true) | flutter doctor --android-licenses && flutter doctor
+  unit_test_flutter:
+    description:
+      Run flutter unit test on the specified plugin package.
+    parameters:
+      plugin_name:
+        type: string
+    steps:
+      - run:
+          name: Run Flutter unit tests
+          command: flutter test
+
+jobs:
+  build:
+    executor: build-executor
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: /root
+          paths:
+            - flutter-plugins-ci
+  unit_test_flutter_battery:
+    executor: build-executor
+    steps:
+      - attach_workspace:
+          at: /root
+      - run: pwd
+
 workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
+  build_test_deploy:
     jobs:
-      - welcome/run
+      - build
+      - unit_test_flutter_battery
