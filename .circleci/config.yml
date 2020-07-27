@@ -8,11 +8,11 @@ executors:
 
   android-executor:
     macos:
-      xcode: 11.4.1
+      xcode: 11.6.0
 
   ios-executor:
     macos:
-      xcode: 11.4.1
+      xcode: 11.6.0
     working_directory: ~/flutter-plugins-ci
 
 commands:
