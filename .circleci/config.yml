@@ -72,6 +72,7 @@ commands:
           command: |
             cd ~/flutter-plugins-ci/packages/<< parameters.plugin_name >>/example/ios
             flutter build ios --no-codesign
+            xcodebuild test -workspace Runner.xcworkspace -scheme Runner -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.6'
 
 jobs:
   unit_test_flutter_battery:
