@@ -11,7 +11,8 @@ Develop each plugin just as you would for a normal plugin.
 For Android, add a `test` directory under `android/src`, and modify
 `android/build.gradle` to add test dependencies like JUnit and Mockito.
 These tests can be run with Gradle, by running `flutter build apk` in
-`example` and then running `./gradlew testDebugUnitTest`.
+`example` and then running `./gradlew testDebugUnitTest` under
+`example/android`.
 
 ## iOS unit tests
 
