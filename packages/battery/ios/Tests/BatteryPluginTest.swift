@@ -5,6 +5,7 @@
 //  Created by Kyle Yan on 7/27/20.
 //
 
+@testable import battery
 import XCTest
 
 class BatteryPluginTest: XCTestCase {
@@ -21,6 +22,17 @@ class BatteryPluginTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         print("Hey this is a test")
+        let plugin = SwiftBatteryPlugin()
+        let methodCall = FlutterMethodCall(methodName: "getBatteryLevel", arguments: [])
+        plugin.handle(methodCall, result: { (result) in
+            if let batteryLevel = result as? Int {
+                print("Battery level is \(batteryLevel)")
+            } else if (result is FlutterError?) {
+                // expected to print this in simulator
+                // not mocking for simplicity
+                print("Unable to read battery level")
+            }
+        })
     }
 
     func testPerformanceExample() throws {
