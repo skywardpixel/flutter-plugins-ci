@@ -38,64 +38,40 @@ commands:
   unit_test_flutter:
     description:
       Run flutter unit test on the specified plugin package.
-    parameters:
-      plugin_name:
-        type: string
     steps:
-      - run:
-          name: Run Flutter unit tests
-          command: |
-            cd ~/flutter-plugins-ci/packages/<< parameters.plugin_name >>
-            flutter test
+      - run: .circleci/test_all_plugins.sh unit-test
   unit_test_android:
     description:
       Run Android (Kotlin) unit test on the specified plugin package.
-    parameters:
-      plugin_name:
-        type: string
     steps:
-      - run:
-          name: Run Android unit tests
-          command: |
-            cd ~/flutter-plugins-ci/packages/<< parameters.plugin_name >>/example/android
-            flutter build apk
-            ./gradlew testDebugUnitTest
+      - run: .circleci/test_all_plugins.sh android-test
   unit_test_ios:
     description:
       Run iOS (Swift) unit test on the specified plugin package.
-    parameters:
-      plugin_name:
-        type: string
     steps:
-      - run:
-          name: Run iOS unit tests
-          command: |
-            cd ~/flutter-plugins-ci/packages/<< parameters.plugin_name >>/example/ios
-            flutter build ios --no-codesign
-            xcodebuild test -workspace Runner.xcworkspace -scheme Runner -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.6'
+      - run: .circleci/test_all_plugins.sh ios-test
 
 jobs:
-  unit_test_flutter_battery:
+  unit_test_flutter:
     executor: build-executor
     steps:
-      - install_flutter
-      - checkout
-      - unit_test_flutter:
-          plugin_name: battery
-  unit_test_android_battery:
-    executor: build-executor
-    steps:
-      - install_flutter
-      - checkout
-      - unit_test_android:
-          plugin_name: battery
-  unit_test_ios_battery:
+        - install_flutter
+        - checkout
+        - unit_test_flutter
+
+  unit_test_ios:
     executor: ios-executor
     steps:
-      - install_flutter
-      - checkout
-      - unit_test_ios:
-          plugin_name: battery
+        - install_flutter
+        - checkout
+        - unit_test_ios
+
+  unit_test_android:
+    executor: android-executor
+    steps:
+        - install_flutter
+        - checkout
+        - unit_test_android
 
 releasable_branches: &releasable_branches
   branches:
@@ -106,6 +82,6 @@ releasable_branches: &releasable_branches
 workflows:
   build_test_deploy:
     jobs:
-      - unit_test_flutter_battery
-      - unit_test_android_battery
-      - unit_test_ios_battery
+      - unit_test_flutter
+      - unit_test_android
+      - unit_test_ios
