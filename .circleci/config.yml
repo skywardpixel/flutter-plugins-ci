@@ -39,17 +39,17 @@ commands:
     description:
       Run flutter unit test on the specified plugin package.
     steps:
-      - run: .circleci/test_all_plugins.sh unit-test
+      - run: . .circleci/test_all_plugins.sh flutter-test
   unit_test_android:
     description:
       Run Android (Kotlin) unit test on the specified plugin package.
     steps:
-      - run: .circleci/test_all_plugins.sh android-test
+      - run: . .circleci/test_all_plugins.sh android-test
   unit_test_ios:
     description:
       Run iOS (Swift) unit test on the specified plugin package.
     steps:
-      - run: .circleci/test_all_plugins.sh ios-test
+      - run: . .circleci/test_all_plugins.sh ios-test
 
 jobs:
   unit_test_flutter:
@@ -67,7 +67,7 @@ jobs:
         - unit_test_ios
 
   unit_test_android:
-    executor: android-executor
+    executor: build-executor
     steps:
         - install_flutter
         - checkout
