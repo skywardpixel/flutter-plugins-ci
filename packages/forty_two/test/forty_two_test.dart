@@ -18,6 +18,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await FortyTwo.platformVersion, '42');
+    expect(await FortyTwo.platformVersion, '43');
   });
 }

@@ -2,19 +2,22 @@
 
 cd packages || exit
 
+failed_plugins=()
+skipped_plugins=()
+
 for plugin_dir in */; do
     cd "$plugin_dir" || exit
     plugin=$(basename "$plugin_dir")
     case $1 in
-        unit-test)
+        flutter-test)
             echo "=== Running Flutter unit tests for $plugin ==="
-            flutter test
+            flutter test || failed_plugins+=($plugin)
             ;;
         android-test)
             echo "=== Running Android unit tests for $plugin ==="
             cd example/android || continue
             flutter build apk
-            ./gradlew testDebugUnitTest
+            ./gradlew testDebugUnitTest || failed_plugins+=($plugin)
             cd ../..
             ;;
         ios-test)
@@ -23,15 +26,23 @@ for plugin_dir in */; do
                 XCODEBUILD_DESTINATION="'platform=iOS Simulator,name=iPhone 11,OS=13.6'"
                 cd example/ios || continue
                 flutter build ios --no-codesign
-                xcodebuild test -workspace Runner.xcworkspace -scheme Runner -destination "$XCODEBUILD_DESTINATION"
+                xcodebuild test -workspace Runner.xcworkspace -scheme Runner -destination "$XCODEBUILD_DESTINATION" || failed_plugins+=($plugin)
                 cd ../..
             else
                 echo "iOS unit tests for $plugin don't exist. Skipping."
+                skipped_plugins+=($plugin)
             fi
             ;;
     esac
     cd ..
     echo
 done
+
+echo "=== Unit test complete ==="
+echo "Failed plugins:"
+echo $failed_plugins
+echo
+echo "Skipped plugins:"
+echo $skipped_plugins
 
 cd ..
