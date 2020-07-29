@@ -136,4 +136,6 @@ workflows:
             - integ_test_ios_dummy
             - e2e_test_android_dummy
             - e2e_test_ios_dummy
-      - deploy
+      - deploy_dummy:
+          requires:
+            - request-deploy
