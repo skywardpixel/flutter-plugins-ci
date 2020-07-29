@@ -9,6 +9,7 @@ executors:
   android-executor:
     macos:
       xcode: 11.6.0
+    working_directory: ~/flutter-plugins-ci
 
   ios-executor:
     macos:
@@ -55,23 +56,43 @@ jobs:
   unit_test_flutter:
     executor: build-executor
     steps:
-        - install_flutter
-        - checkout
-        - unit_test_flutter
+      - install_flutter
+      - checkout
+      - unit_test_flutter
 
   unit_test_ios:
     executor: ios-executor
     steps:
-        - install_flutter
-        - checkout
-        - unit_test_ios
+      - install_flutter
+      - checkout
+      - unit_test_ios
 
   unit_test_android:
     executor: build-executor
     steps:
-        - install_flutter
-        - checkout
-        - unit_test_android
+      - install_flutter
+      - checkout
+      - unit_test_android
+
+  integ_test_ios_dummy:
+    executor: ios-executor
+    steps:
+      - run: echo "Dummy iOS integ tests"
+
+  integ_test_android_dummy:
+    executor: ios-executor
+    steps:
+      - run: echo "Dummy Android integ tests"
+
+  e2e_test_ios_dummy:
+    executor: ios-executor
+    steps:
+      - run: echo "Dummy iOS e2e tests"
+
+  e2e_test_android_dummy:
+    executor: ios-executor
+    steps:
+      - run: echo "Dummy Android e2e tests"
 
 releasable_branches: &releasable_branches
   branches:
