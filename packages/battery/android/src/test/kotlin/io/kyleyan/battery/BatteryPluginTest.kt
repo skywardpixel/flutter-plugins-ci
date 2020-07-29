@@ -15,6 +15,6 @@ class BatteryPluginTest {
         val result: Result = mock(Result::class.java)
         batteryPlugin.batteryLevel = batteryLevel
         batteryPlugin.onMethodCall(MethodCall("getBatteryLevel", args), result)
-        verify(result).success(42)
+        verify(result).success(43)
     }
 }
