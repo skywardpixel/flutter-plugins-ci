@@ -15,10 +15,15 @@ for plugin_dir in */; do
             ;;
         android-test)
             echo "=== Running Android unit tests for $plugin ==="
-            cd example/android || continue
-            flutter build apk
-            ./gradlew testDebugUnitTest || failed_plugins+=($plugin)
-            cd ../..
+            if [ -d "android/src/test" ]; then
+                cd example/android || continue
+                flutter build apk
+                ./gradlew testDebugUnitTest || failed_plugins+=($plugin)
+                cd ../..
+            else
+                echo "Android unit tests for $plugin don't exist. Skipping."
+                skipped_plugins+=($plugin)
+            fi
             ;;
         ios-test)
             echo "=== Running iOS unit tests for $plugin ==="
