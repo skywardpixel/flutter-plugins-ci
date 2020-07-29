@@ -23,7 +23,7 @@ for plugin_dir in */; do
         ios-test)
             echo "=== Running iOS unit tests for $plugin ==="
             if [ -d "ios/Tests" ]; then
-                XCODEBUILD_DESTINATION="'platform=iOS Simulator,name=iPhone 11,OS=13.6'"
+                XCODEBUILD_DESTINATION="platform=iOS Simulator,name=iPhone 11,OS=13.6"
                 cd example/ios || continue
                 flutter build ios --no-codesign
                 xcodebuild test -workspace Runner.xcworkspace -scheme Runner -destination "$XCODEBUILD_DESTINATION" || failed_plugins+=($plugin)
@@ -46,3 +46,5 @@ echo "Skipped plugins:"
 echo $skipped_plugins
 
 cd ..
+
+exit ${#failed_plugins[@]}
