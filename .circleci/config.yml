@@ -93,6 +93,11 @@ jobs:
     executor: ios-executor
     steps:
       - run: echo "Dummy Android e2e tests"
+  
+  deploy_dummy:
+    executor: build-executor
+    steps:
+      - run: echo "Dummy deploy"
 
 releasable_branches: &releasable_branches
   branches:
@@ -124,3 +129,11 @@ workflows:
       - e2e_test_ios_dummy:
           requires:
             - request-testing
+      - request-deploy:
+          type: approval
+          requires:
+            - integ_test_android_dummy
+            - integ_test_ios_dummy
+            - e2e_test_android_dummy
+            - e2e_test_ios_dummy
+      - deploy
