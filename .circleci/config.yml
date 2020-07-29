@@ -106,3 +106,21 @@ workflows:
       - unit_test_flutter
       - unit_test_android
       - unit_test_ios
+      - request-testing:
+          type: approval
+          requires:
+            - unit_test_flutter
+            - unit_test_android
+            - unit_test_ios
+      - integ_test_android_dummy:
+          requires:
+            - request-testing
+      - integ_test_ios_dummy:
+          requires:
+            - request-testing
+      - e2e_test_android_dummy:
+          requires:
+            - request-testing
+      - e2e_test_ios_dummy:
+          requires:
+            - request-testing
