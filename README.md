@@ -2,6 +2,8 @@
 
 Some edit.
 
+More edits.
+
 This repo contains a PoC of how multiple plugins in a single repo will be
 tested and released with CircleCI.
 
