@@ -78,21 +78,49 @@ jobs:
     executor: ios-executor
     steps:
       - run: echo "Dummy iOS integ tests"
+      - run: |
+          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
+            exit 1;
+          else
+            echo "Credentials are available. Let's fetch the data!"
+          fi
 
   integ_test_android_dummy:
     executor: ios-executor
     steps:
       - run: echo "Dummy Android integ tests"
+      - run: |
+          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
+            exit 1;
+          else
+            echo "Credentials are available. Let's fetch the data!"
+          fi
 
   e2e_test_ios_dummy:
     executor: ios-executor
     steps:
       - run: echo "Dummy iOS e2e tests"
+      - run: |
+          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
+            exit 1;
+          else
+            echo "Credentials are available. Let's fetch the data!"
+          fi
 
   e2e_test_android_dummy:
     executor: ios-executor
     steps:
       - run: echo "Dummy Android e2e tests"
+      - run: |
+          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
+            exit 1;
+          else
+            echo "Credentials are available. Let's fetch the data!"
+          fi
   
   deploy_dummy:
     executor: build-executor
@@ -135,25 +163,6 @@ workflows:
       - request_deploy:
           type: approval
           requires:
-            - integ_test_android_dummy
-            - integ_test_ios_dummy
-            - e2e_test_android_dummy
-            - e2e_test_ios_dummy
-      - deploy_dummy:
-          requires:
-            - request_deploy
-  full_test_and_deploy:
-    jobs:
-      - unit_test_flutter
-      - unit_test_android
-      - unit_test_ios
-      - integ_test_android_dummy
-      - integ_test_ios_dummy
-      - e2e_test_android_dummy
-      - e2e_test_ios_dummy
-      - request_deploy:
-          type: approval
-          requires:
             - unit_test_flutter
             - unit_test_android
             - unit_test_ios
@@ -161,8 +170,10 @@ workflows:
             - integ_test_ios_dummy
             - e2e_test_android_dummy
             - e2e_test_ios_dummy
+          filters:
+            <<: *releasable_branches
       - deploy_dummy:
           requires:
             - request_deploy
-    # filters:
-    #   <<: *releasable_branches
+          filters:
+            <<: *releasable_branches
