@@ -36,21 +36,6 @@ commands:
             source $BASH_ENV
             git clone --branch ${FLUTTER_VERSION} https://github.com/flutter/flutter.git ${FLUTTER_HOME}
             (yes || true) | flutter doctor --android-licenses && flutter doctor
-  unit_test_flutter:
-    description:
-      Run flutter unit test on the specified plugin package.
-    steps:
-      - run: . .circleci/test_all_plugins.sh flutter-test
-  unit_test_android:
-    description:
-      Run Android (Kotlin) unit test on the specified plugin package.
-    steps:
-      - run: . .circleci/test_all_plugins.sh android-test
-  unit_test_ios:
-    description:
-      Run iOS (Swift) unit test on the specified plugin package.
-    steps:
-      - run: . .circleci/test_all_plugins.sh ios-test
 
 jobs:
   unit_test_flutter:
@@ -58,21 +43,27 @@ jobs:
     steps:
       - install_flutter
       - checkout
-      - unit_test_flutter
+      - run: 
+          name: Run Flutter Unit Tests
+          command: . .circleci/test_all_plugins.sh flutter-test
 
   unit_test_ios:
     executor: ios-executor
     steps:
       - install_flutter
       - checkout
-      - unit_test_ios
+      - run:
+          name: Run iOS Unit Tests
+          command: . .circleci/test_all_plugins.sh ios-test
 
   unit_test_android:
     executor: build-executor
     steps:
       - install_flutter
       - checkout
-      - unit_test_android
+      - run:
+          name: Run Android Unit Tests
+          command: . .circleci/test_all_plugins.sh android-test
 
   integ_test_ios_dummy:
     executor: ios-executor

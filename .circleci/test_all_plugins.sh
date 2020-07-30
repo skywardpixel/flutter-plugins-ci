@@ -20,7 +20,7 @@ for plugin_dir in */; do
             if [ -d "android/src/test" ]; then
                 cd example/android || continue
                 flutter build apk
-                ./gradlew testDebugUnitTest
+                ./gradlew testDebugUnitTest --info
                 if [ $? -ne 0 ]; then
                     echo "FAILED: Android unit tests for $plugin failed."
                     failed_plugins+=($plugin)
