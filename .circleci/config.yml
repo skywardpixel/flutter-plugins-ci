@@ -106,30 +106,33 @@ releasable_branches: &releasable_branches
       - master
 
 workflows:
-  build_test_deploy:
+  test_deploy:
     jobs:
       - unit_test_flutter
       - unit_test_android
       - unit_test_ios
-      - request-testing:
+      - request_testing:
           type: approval
           requires:
             - unit_test_flutter
             - unit_test_android
             - unit_test_ios
+          filters:
+            branches:
+              only: /pull\/[0-9]+/
       - integ_test_android_dummy:
           requires:
-            - request-testing
+            - request_testing
       - integ_test_ios_dummy:
           requires:
-            - request-testing
+            - request_testing
       - e2e_test_android_dummy:
           requires:
-            - request-testing
+            - request_testing
       - e2e_test_ios_dummy:
           requires:
-            - request-testing
-      - request-deploy:
+            - request_testing
+      - request_deploy:
           type: approval
           requires:
             - integ_test_android_dummy
@@ -138,4 +141,28 @@ workflows:
             - e2e_test_ios_dummy
       - deploy_dummy:
           requires:
-            - request-deploy
+            - request_deploy
+  full_test_and_deploy:
+    jobs:
+      - unit_test_flutter
+      - unit_test_android
+      - unit_test_ios
+      - integ_test_android_dummy
+      - integ_test_ios_dummy
+      - e2e_test_android_dummy
+      - e2e_test_ios_dummy
+      - request_deploy:
+          type: approval
+          requires:
+            - unit_test_flutter
+            - unit_test_android
+            - unit_test_ios
+            - integ_test_android_dummy
+            - integ_test_ios_dummy
+            - e2e_test_android_dummy
+            - e2e_test_ios_dummy
+      - deploy_dummy:
+          requires:
+            - request_deploy
+    # filters:
+    #   <<: *releasable_branches
