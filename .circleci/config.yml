@@ -37,6 +37,10 @@ commands:
             git clone --branch ${FLUTTER_VERSION} https://github.com/flutter/flutter.git ${FLUTTER_HOME}
             (yes || true) | flutter doctor --android-licenses && flutter doctor
 
+  test_on_upstream:
+    steps:
+      - run: echo "$CI_PULL_REQUEST"
+
 jobs:
   unit_test_flutter:
     executor: build-executor
@@ -117,6 +121,7 @@ jobs:
     executor: ios-executor
     steps:
       - run: echo "Dummy iOS integ tests"
+      - test_on_upstream
       - run: |
           if [ -z "$AWS_ACCESS_KEY_ID" ]; then
             echo "No AWS_ACCESS_KEY_ID is set! Failing..."
@@ -129,6 +134,7 @@ jobs:
     executor: ios-executor
     steps:
       - run: echo "Dummy Android integ tests"
+      - test_on_upstream
       - run: |
           if [ -z "$AWS_ACCESS_KEY_ID" ]; then
             echo "No AWS_ACCESS_KEY_ID is set! Failing..."
@@ -141,6 +147,7 @@ jobs:
     executor: ios-executor
     steps:
       - run: echo "Dummy iOS e2e tests"
+      - test_on_upstream
       - run: |
           if [ -z "$AWS_ACCESS_KEY_ID" ]; then
             echo "No AWS_ACCESS_KEY_ID is set! Failing..."
@@ -153,6 +160,7 @@ jobs:
     executor: ios-executor
     steps:
       - run: echo "Dummy Android e2e tests"
+      - test_on_upstream
       - run: |
           if [ -z "$AWS_ACCESS_KEY_ID" ]; then
             echo "No AWS_ACCESS_KEY_ID is set! Failing..."
