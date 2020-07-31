@@ -69,49 +69,21 @@ jobs:
     executor: ios-executor
     steps:
       - run: echo "Dummy iOS integ tests"
-      - run: |
-          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
-            exit 1;
-          else
-            echo "Credentials are available. Let's fetch the data!"
-          fi
 
   integ_test_android_dummy:
     executor: ios-executor
     steps:
       - run: echo "Dummy Android integ tests"
-      - run: |
-          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
-            exit 1;
-          else
-            echo "Credentials are available. Let's fetch the data!"
-          fi
 
   e2e_test_ios_dummy:
     executor: ios-executor
     steps:
       - run: echo "Dummy iOS e2e tests"
-      - run: |
-          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
-            exit 1;
-          else
-            echo "Credentials are available. Let's fetch the data!"
-          fi
 
   e2e_test_android_dummy:
     executor: ios-executor
     steps:
       - run: echo "Dummy Android e2e tests"
-      - run: |
-          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-            echo "No AWS_ACCESS_KEY_ID is set! Failing..."
-            exit 1;
-          else
-            echo "Credentials are available. Let's fetch the data!"
-          fi
 
   integ_test_ios_dummy_ext:
     executor: ios-executor
@@ -200,26 +172,18 @@ workflows:
           requires:
             - request_testing
       - integ_test_android_dummy:
-          requires:
-            - request_testing
           filters:
             branches:
               ignore: /pull\/[0-9]+/
       - integ_test_ios_dummy:
-          requires:
-            - request_testing
           filters:
             branches:
               ignore: /pull\/[0-9]+/
       - e2e_test_android_dummy:
-          requires:
-            - request_testing
           filters:
             branches:
               ignore: /pull\/[0-9]+/
       - e2e_test_ios_dummy:
-          requires:
-            - request_testing
           filters:
             branches:
               ignore: /pull\/[0-9]+/
