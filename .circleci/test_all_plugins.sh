@@ -2,6 +2,7 @@
 
 cd packages || exit
 
+passed_plugins=()
 failed_plugins=()
 skipped_plugins=()
 
@@ -18,9 +19,12 @@ for plugin_dir in */; do
                 if [ $? -ne 0 ]; then
                     echo "FAILED: Flutter unit tests for $plugin failed."
                     failed_plugins+=($plugin)
+                else
+                    echo "PASSED: Flutter unit tests for $plugin passed."
+                    passed_plugins+=($plugin)
                 fi
             else
-                echo "Flutter unit tests for $plugin don't exist. Skipping."
+                echo "SKIPPED: Flutter unit tests for $plugin don't exist. Skipping."
                 skipped_plugins+=($plugin)
             fi
             ;;
@@ -33,10 +37,13 @@ for plugin_dir in */; do
                 if [ $? -ne 0 ]; then
                     echo "FAILED: Android unit tests for $plugin failed."
                     failed_plugins+=($plugin)
+                else
+                    echo "PASSED: Android unit tests for $plugin passed."
+                    passed_plugins+=($plugin)
                 fi
                 cd ../..
             else
-                echo "Android unit tests for $plugin don't exist. Skipping."
+                echo "SKIPPED: Android unit tests for $plugin don't exist. Skipping."
                 skipped_plugins+=($plugin)
             fi
             ;;
@@ -50,10 +57,13 @@ for plugin_dir in */; do
                 if [ $? -ne 0 ]; then
                     echo "FAILED: iOS unit tests for $plugin failed."
                     failed_plugins+=($plugin)
+                else
+                    echo "PASSED: iOS unit tests for $plugin passed."
+                    passed_plugins+=($plugin)
                 fi
                 cd ../..
             else
-                echo "iOS unit tests for $plugin don't exist. Skipping."
+                echo "SKIPPED: iOS unit tests for $plugin don't exist. Skipping."
                 skipped_plugins+=($plugin)
             fi
             ;;
@@ -63,11 +73,19 @@ for plugin_dir in */; do
 done
 
 echo "=== Unit test complete ==="
-echo "${#failed_plugins[@]} failed plugins:"
-echo $failed_plugins
 echo
+
+echo "${#passed_plugins[@]} passed plugins:"
+echo "${passed_plugins[@]}"
+echo
+
+echo "${#failed_plugins[@]} failed plugins:"
+echo "${failed_plugins[@]}"
+echo
+
 echo "${#skipped_plugins[@]} skipped plugins:"
-echo $skipped_plugins
+echo "${skipped_plugins[@]}"
+echo
 
 cd ..
 
