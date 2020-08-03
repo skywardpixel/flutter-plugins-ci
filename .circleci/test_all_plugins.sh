@@ -13,7 +13,16 @@ for plugin_dir in */; do
     case $1 in
         flutter-test)
             echo "=== Running Flutter unit tests for $plugin ==="
-            flutter test || failed_plugins+=($plugin)
+            if [ -d "test" ]; then
+                flutter test
+                if [ $? -ne 0 ]; then
+                    echo "FAILED: Flutter unit tests for $plugin failed."
+                    failed_plugins+=($plugin)
+                fi
+            else
+                echo "Flutter unit tests for $plugin don't exist. Skipping."
+                skipped_plugins+=($plugin)
+            fi
             ;;
         android-test)
             echo "=== Running Android unit tests for $plugin ==="
