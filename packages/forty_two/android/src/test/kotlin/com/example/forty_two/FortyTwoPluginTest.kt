@@ -1,5 +1,6 @@
+package com.example.forty_two
+
 import org.junit.Test
-import org.junit.Assert.*;
 
 class FortyTwoPluginTest {
     @Test

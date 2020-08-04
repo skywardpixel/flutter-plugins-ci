@@ -8,10 +8,18 @@ Develop each plugin just as you would for a normal plugin.
 
 ## Android unit tests
 
-For Android, add a `test` directory under `android/src`, and modify
+For Android, add a `test/kotlin` directory under `android/src`, and modify
 `android/build.gradle` to add test dependencies like JUnit and Mockito.
+The tests then can be added under `test/kotlin`. 
+Typically, put your tests in the same package as the source file (for package
+level access), and add package statements to the test source files as necessary.
+
+Also, add a line `test.java.srcDirs += 'src/test/kotlin'` under the
+`android > sourceSets` block. This helps Android Studio mark the test
+directory. Not sure if this is necessary for running tests in CI, though.
+
 These tests can be run with Gradle, by running `flutter build apk` in
-`example` and then running `./gradlew testDebugUnitTest` under
+`example` and then running `./gradlew testDebugUnitTest --info` under
 `example/android`.
 
 ## iOS unit tests
