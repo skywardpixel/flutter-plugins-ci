@@ -53,7 +53,7 @@ commands:
       - run: echo "$CI_PULL_REQUEST"
 
 jobs:
-  setup_environment:
+  checkout_and_install_flutter:
     executor: docker-executor
     steps:
       - setup_env_vars
@@ -213,16 +213,16 @@ releasable_branches: &releasable_branches
 workflows:
   test_deploy:
     jobs:
-      - setup_environment
+      - checkout_and_install_flutter
       - unit_test_flutter:
           requires:
-            - setup_environment
+            - checkout_and_install_flutter
       - unit_test_android:
           requires:
-            - setup_environment
+            - checkout_and_install_flutter
       - unit_test_ios:
           requires:
-            - setup_environment
+            - checkout_and_install_flutter
       # - request_testing:
       #     type: approval
       #     requires:
@@ -249,25 +249,25 @@ workflows:
             branches:
               ignore: /pull\/[0-9]+/
           requires:
-            - setup_environment
+            - checkout_and_install_flutter
       - integ_test_ios_dummy:
           filters:
             branches:
               ignore: /pull\/[0-9]+/
           requires:
-            - setup_environment
+            - checkout_and_install_flutter
       - e2e_test_android_dummy:
           filters:
             branches:
               ignore: /pull\/[0-9]+/
           requires:
-            - setup_environment
+            - checkout_and_install_flutter
       - e2e_test_ios_dummy:
           filters:
             branches:
               ignore: /pull\/[0-9]+/
           requires:
-            - setup_environment
+            - checkout_and_install_flutter
       - request_deploy:
           type: approval
           requires:
