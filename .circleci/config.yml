@@ -40,6 +40,7 @@ commands:
   flutter_doctor:
     description:
       Initialize Flutter and run flutter doctor.
+      This should be run after persisting to workspace to avoid caching binaries for Linux.
     steps:
       - run:
           name: Flutter doctor
