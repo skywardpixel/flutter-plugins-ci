@@ -59,7 +59,7 @@ jobs:
       - install_flutter
       - checkout
       - persist_to_workspace:
-          root: /home/circleci
+          root: ~/
           paths:
             - sdks/flutter
             - flutter-plugins-ci
@@ -70,7 +70,7 @@ jobs:
     steps:
       - setup_env_vars
       - attach_workspace:
-          at: /home/circleci
+          at: ~/
       - flutter_doctor
       - run:
           name: Run Flutter Unit Tests
@@ -81,7 +81,7 @@ jobs:
     steps:
       - setup_env_vars
       - attach_workspace:
-          at: /Users/distiller
+          at: ~/
       - flutter_doctor
       - run:
           name: Run iOS Unit Tests
@@ -92,7 +92,7 @@ jobs:
     steps:
       - setup_env_vars
       - attach_workspace:
-          at: /home/circleci
+          at: ~/
       - flutter_doctor
       - run:
           name: Run Android Unit Tests
