@@ -10,7 +10,21 @@ Develop each plugin just as you would for a normal plugin.
 
 For Android, add a `test/kotlin` directory under `android/src`, and modify
 `android/build.gradle` to add test dependencies like JUnit and Mockito.
-The tests then can be added under `test/kotlin`. 
+For example,
+
+```gradle
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.mockito:mockito-core:3.1.0'
+    testImplementation 'org.mockito:mockito-inline:3.1.0'  // required for mocking Kotlin classes
+    testImplementation 'androidx.test:core:1.2.0'
+    testImplementation 'org.robolectric:robolectric:4.3.1'
+}
+```
+
+The tests then can be added under `test/kotlin`.
 Typically, put your tests in the same package as the source file (for package
 level access), and add package statements to the test source files as necessary.
 
