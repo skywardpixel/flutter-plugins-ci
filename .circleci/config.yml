@@ -45,8 +45,8 @@ jobs:
       - persist_to_workspace:
           root: /home/circleci
           paths:
-            - flutter
-            - amplify-flutter
+            - sdks/flutter
+            - flutter-plugins-ci
 
   unit_test_flutter:
     executor: docker-executor
