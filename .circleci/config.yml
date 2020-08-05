@@ -37,11 +37,22 @@ commands:
       - run: echo "$CI_PULL_REQUEST"
 
 jobs:
-  unit_test_flutter:
+  setup_environment:
     executor: docker-executor
     steps:
       - install_flutter
       - checkout
+      - persist_to_workspace:
+          root: /root
+          paths:
+            - flutter
+            - amplify-flutter
+
+  unit_test_flutter:
+    executor: docker-executor
+    steps:
+      - attach_workspace:
+          at: /root
       - run:
           name: Run Flutter Unit Tests
           command: . .circleci/test_all_plugins.sh flutter-test
@@ -49,8 +60,8 @@ jobs:
   unit_test_ios:
     executor: macos-executor
     steps:
-      - install_flutter
-      - checkout
+      - attach_workspace:
+          at: /Users/circleci
       - run:
           name: Run iOS Unit Tests
           command: . .circleci/test_all_plugins.sh ios-test
@@ -58,8 +69,8 @@ jobs:
   unit_test_android:
     executor: docker-executor
     steps:
-      - install_flutter
-      - checkout
+      - attach_workspace:
+          at: /root
       - run:
           name: Run Android Unit Tests
           command: . .circleci/test_all_plugins.sh android-test
