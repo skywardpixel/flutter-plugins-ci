@@ -43,7 +43,7 @@ jobs:
       - install_flutter
       - checkout
       - persist_to_workspace:
-          root: /root
+          root: /home/circleci
           paths:
             - flutter
             - amplify-flutter
@@ -52,7 +52,7 @@ jobs:
     executor: docker-executor
     steps:
       - attach_workspace:
-          at: /root
+          at: /home/circleci
       - run:
           name: Run Flutter Unit Tests
           command: . .circleci/test_all_plugins.sh flutter-test
@@ -70,7 +70,7 @@ jobs:
     executor: docker-executor
     steps:
       - attach_workspace:
-          at: /root
+          at: /home/circleci
       - run:
           name: Run Android Unit Tests
           command: . .circleci/test_all_plugins.sh android-test
