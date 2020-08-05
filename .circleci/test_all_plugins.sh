@@ -15,7 +15,7 @@ for plugin_dir in */; do
         flutter-test)
             echo "=== Running Flutter unit tests for $plugin ==="
             if [ -d "test" ]; then
-                if flutter test; then
+                if flutter test --machine | tojunit --output "$plugin-flutter-test.xml"; then
                     echo "PASSED: Flutter unit tests for $plugin passed."
                     passed_plugins+=("$plugin")
                 else
@@ -41,7 +41,7 @@ for plugin_dir in */; do
                     failed_plugins+=("$plugin")
                     continue
                 fi
-                
+
                 if ./gradlew testDebugUnitTest --info; then
                     echo "PASSED: Android unit tests for $plugin passed."
                     passed_plugins+=("$plugin")
@@ -70,7 +70,7 @@ for plugin_dir in */; do
                     failed_plugins+=("$plugin")
                     continue
                 fi
-                
+
                 if xcodebuild test -workspace Runner.xcworkspace -scheme Runner -destination "$XCODEBUILD_DESTINATION"; then
                     echo "PASSED: iOS unit tests for $plugin passed."
                     passed_plugins+=("$plugin")
