@@ -189,9 +189,16 @@ releasable_branches: &releasable_branches
 workflows:
   test_deploy:
     jobs:
-      - unit_test_flutter
-      - unit_test_android
-      - unit_test_ios
+      - setup_environment
+      - unit_test_flutter:
+          requires:
+            - setup_environment
+      - unit_test_android:
+          requires:
+            - setup_environment
+      - unit_test_ios:
+          requires:
+            - setup_environment
       # - request_testing:
       #     type: approval
       #     requires:
@@ -217,18 +224,26 @@ workflows:
           filters:
             branches:
               ignore: /pull\/[0-9]+/
+          requires:
+            - setup_environment
       - integ_test_ios_dummy:
           filters:
             branches:
               ignore: /pull\/[0-9]+/
+          requires:
+            - setup_environment
       - e2e_test_android_dummy:
           filters:
             branches:
               ignore: /pull\/[0-9]+/
+          requires:
+            - setup_environment
       - e2e_test_ios_dummy:
           filters:
             branches:
               ignore: /pull\/[0-9]+/
+          requires:
+            - setup_environment
       - request_deploy:
           type: approval
           requires:
