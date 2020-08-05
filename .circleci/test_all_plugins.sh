@@ -72,7 +72,11 @@ for plugin_dir in */; do
                     continue
                 fi
 
-                if xcodebuild test -workspace Runner.xcworkspace -scheme Runner -destination "$XCODEBUILD_DESTINATION"; then
+                if xcodebuild test \
+                        -workspace Runner.xcworkspace \
+                        -scheme Runner \
+                        -destination "$XCODEBUILD_DESTINATION" | xcpretty \
+                        -r "junit"; then
                     echo "PASSED: iOS unit tests for $plugin passed."
                     passed_plugins+=("$plugin")
                 else

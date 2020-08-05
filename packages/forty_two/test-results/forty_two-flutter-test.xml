@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite errors="0" failures="0" tests="1" skipped="0" name=".Users.kyleyan.Learn.plugins_poc.packages.forty_two.test.forty_two" timestamp="2020-08-05T16:20:34">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname=".Users.kyleyan.Learn.plugins_poc.packages.forty_two.test.forty_two" name="getPlatformVersion" time="0.036"/>
+  </testsuite>
+</testsuites>

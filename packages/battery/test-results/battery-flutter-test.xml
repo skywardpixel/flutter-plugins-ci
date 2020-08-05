@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite errors="0" failures="0" tests="1" skipped="0" name=".Users.kyleyan.Learn.plugins_poc.packages.battery.test.battery" timestamp="2020-08-05T16:20:30">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname=".Users.kyleyan.Learn.plugins_poc.packages.battery.test.battery" name="batteryLevel" time="0.033"/>
+  </testsuite>
+</testsuites>

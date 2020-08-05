@@ -98,6 +98,12 @@ jobs:
           at: ~/
       - flutter_doctor
       - run:
+          name: Pre-start iOS simulator
+          command: xcrun instruments -w "iPhone 11 (13.6) [" || true
+      # - run:
+      #     name: Install xcpretty for JUnit XML reports
+      #     command: gem install xcpretty
+      - run:
           name: Run iOS Unit Tests
           command: . .circleci/test_all_plugins.sh ios-test
 
