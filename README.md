@@ -78,7 +78,8 @@ Also add a line in `ios/xxx.podspec` in the `s.test_spec 'Tests'` block: `test_s
 
 ## CI/CD
 
-Currently, a new job is run for each of Flutter, Android and iOS for every plugin,
+Currently, a new job is run for each of Flutter, Android and iOS,
 and Flutter has to be downloaded for every job.
 
-I'm working on speeding up the testing, by merging jobs and reusing resources.
+The next step would be to parallelize the tests for plugins within each
+job.
