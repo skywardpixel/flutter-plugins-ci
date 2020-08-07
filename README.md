@@ -40,6 +40,8 @@ These tests can be run with Gradle, by running `flutter build apk` in
 
 **Currently broken after Flutter 1.20 update. Working on a fix.**
 
+**Please write and run your tests with Flutter 1.17.5 for now.**
+
 (There might be easier ways to do this, but this is what I have
 been able to figure out so far...)
 
