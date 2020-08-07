@@ -1,5 +1,7 @@
 # Plugins PoC
 
+Please ping me (Kyle Y.) on Slack if you run into any issues.
+
 This repo contains a PoC of how multiple plugins in a single repo will be
 tested and released with CircleCI.
 
@@ -7,6 +9,8 @@ The plugin packages lie in `packages`.
 Develop each plugin just as you would for a normal plugin.
 
 ## Android unit tests
+
+**See packages/battery for a simple example. Check out [flutter/plugins](https://github.com/flutter/plugins) for more real world examples.**
 
 For Android, add a `test/kotlin` directory under `android/src`, and modify
 `android/build.gradle` to add test dependencies like JUnit and Mockito.
@@ -24,9 +28,13 @@ dependencies {
 }
 ```
 
-If the `mockito-inline` dependency doesn't solve the issue, consider creating a file
+If the `mockito-inline` dependency doesn't solve the issue with final classes, try creating a file
 `packages/<plugin_name>/android/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker`
-with a single line: `mock-maker-inline`.
+with a single line: 
+
+```
+mock-maker-inline
+```
 
 The tests then can be added under `test/kotlin`.
 Typically, put your tests in the same package as the source file (for package
@@ -37,11 +45,26 @@ Also, add a line `test.java.srcDirs += 'src/test/kotlin'` under the
 directory. Not sure if this is necessary for running tests in CI, though.
 
 These tests can be run with Gradle, by running `flutter build apk` in
-`example` and then running `./gradlew testDebugUnitTest --info` under
+`example` and then running `./gradlew testDebugUnitTest` under
 `example/android`.
 
-If `flutter build apk` shows an error, try running `flutter build apk --debug`
-or `flutter build apk --release` instead.
+If `flutter build apk` shows an error about `libs.jar`, make sure that the version of gradle
+in `example/android/build.gradle` shows `3.5.0`, not `4.0.0`:
+
+```
+buildscript {
+    ext.kotlin_version = '1.3.50'
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'  // should be 3.5.0, not 4.0.0
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+```
 
 ## iOS unit tests
 
