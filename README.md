@@ -24,6 +24,10 @@ dependencies {
 }
 ```
 
+If the `mockito-inline` dependency doesn't solve the issue, consider creating a file
+`packages/<plugin_name>/android/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker`
+with a single line: `mock-maker-inline`.
+
 The tests then can be added under `test/kotlin`.
 Typically, put your tests in the same package as the source file (for package
 level access), and add package statements to the test source files as necessary.
@@ -35,6 +39,9 @@ directory. Not sure if this is necessary for running tests in CI, though.
 These tests can be run with Gradle, by running `flutter build apk` in
 `example` and then running `./gradlew testDebugUnitTest --info` under
 `example/android`.
+
+If `flutter build apk` shows an error, try running `flutter build apk --debug`
+or `flutter build apk --release` instead.
 
 ## iOS unit tests
 
