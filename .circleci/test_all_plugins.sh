@@ -43,7 +43,7 @@ for plugin_dir in */; do
                     continue
                 fi
 
-                if ./gradlew testDebugUnitTest --info; then
+                if ./gradlew test; then
                     echo "PASSED: Android unit tests for $plugin passed."
                     passed_plugins+=("$plugin")
                 else
