@@ -19,12 +19,12 @@ or alternatively using `brew install fastlane`
 ```
 fastlane unstable
 ```
-
+Create a pre-release version by pushing a tag to GitHub, and publishing plugins to Pub.dev
 ### stable
 ```
 fastlane stable
 ```
-
+Create a release version by committing a changelog, pushing a tag to GitHub, and publishing plugins to Pub.dev
 
 ----
 
