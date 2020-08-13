@@ -49,6 +49,7 @@ end
 desc 'Increment versions'
 private_lane :increment_versions do |options|
   version = options[:version].to_s
+  puts version
   Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
     next if plugin == '.' or plugin == '..'
 
