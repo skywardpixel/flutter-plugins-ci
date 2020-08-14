@@ -5,107 +5,102 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.000598">
+      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.00111">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: git fetch --tags" time="0.467715">
+      <testcase classname="fastlane.lanes" name="01: git fetch --tags" time="0.46029">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: git fetch" time="0.46152">
+      <testcase classname="fastlane.lanes" name="02: git fetch" time="0.448305">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: calculate_next_canary_version" time="0.01266">
+      <testcase classname="fastlane.lanes" name="03: calculate_next_canary_version" time="0.014425">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: Switch to increment_versions lane" time="0.000288">
+      <testcase classname="fastlane.lanes" name="04: Switch to increment_versions lane" time="0.000291">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: set_key_value" time="0.000801">
+      <testcase classname="fastlane.lanes" name="05: set_key_value" time="0.002714">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: set_key_value" time="0.000651">
+      <testcase classname="fastlane.lanes" name="06: set_key_value" time="0.001323">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: calculate_next_release_version" time="0.027238">
+      <testcase classname="fastlane.lanes" name="07: calculate_next_release_version" time="0.029842">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="08: build_changelog" time="0.000333">
+      <testcase classname="fastlane.lanes" name="08: build_changelog" time="0.00059">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="09: Switch to write_plugin_changelogs lane" time="0.000164">
+      <testcase classname="fastlane.lanes" name="09: Switch to write_plugin_changelogs lane" time="0.000242">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: write_changelog" time="0.000406">
+      <testcase classname="fastlane.lanes" name="10: write_changelog" time="0.000663">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="11: Switch to prerelease_commit lane" time="0.000177">
+      <testcase classname="fastlane.lanes" name="11: Switch to prerelease_commit lane" time="0.000227">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="12: git config --global user.email fastlane@kyleyan.me" time="0.007775">
+      <testcase classname="fastlane.lanes" name="12: git config --global user.email fastlane@kyleyan.me" time="0.009028">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="13: git config --global user.name fastlane-bot" time="0.010522">
+      <testcase classname="fastlane.lanes" name="13: git config --global user.name fastlane-bot" time="0.009548">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="14: git commit -am chore:\ pre-release\ 0.0.5-preview.1\ \[skip\ ci\]" time="0.035515">
+      <testcase classname="fastlane.lanes" name="14: git commit -am chore:\ pre-release\ 0.0.5-preview.2\ \[skip\ ci\]" time="0.030966">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="15: git push origin fastlane" time="3.266759">
+      <testcase classname="fastlane.lanes" name="15: git push origin fastlane" time="3.334119">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="16: Switch to add_tag lane" time="0.000346">
+      <testcase classname="fastlane.lanes" name="16: Switch to add_tag lane" time="0.000389">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="17: add_git_tag" time="0.021538">
+      <testcase classname="fastlane.lanes" name="17: add_git_tag" time="0.023303">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="18: push_git_tags" time="3.455322">
+      <testcase classname="fastlane.lanes" name="18: push_git_tags" time="3.331457">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="19: Switch to publish_plugins lane" time="0.000602">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="20: flutter pub publish" time="107.200749">
+      <testcase classname="fastlane.lanes" name="19: Switch to publish_plugins lane" time="0.000222">
         
       </testcase>
     
