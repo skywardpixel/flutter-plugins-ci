@@ -38,6 +38,7 @@ lane :stable do
   increment_versions(version: next_version)
 
   changelog = build_changelog(version: next_version, commits: commits)
+  write_plugin_changelogs(changelog: changelog)
 
   # Commit and push
   release_commit(version: next_version)
@@ -133,14 +134,11 @@ end
 desc 'Post-release'
 private_lane :post_release do |options|
   version = options[:version].to_s
-  changelog = options[:changelog]
   tag = "v#{version}"
   plugin_root = File.expand_path("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages")
 
   commit_message = "chore: finalize release #{version} [skip ci]"
   sh('git', 'commit', '-am', commit_message)
-
-  write_plugin_changelogs(changelog: changelog)
 
   add_git_tag(tag: tag, force: true)
   push_git_tags(tag: tag, force: true)
