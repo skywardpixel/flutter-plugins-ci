@@ -20,13 +20,13 @@ lane :unstable do
   changelog = build_changelog(version: next_version, commits: commits)
   write_plugin_changelogs(changelog: changelog)
 
-  prerelease_commit(version: next_version)
+  # prerelease_commit(version: next_version)
 
-  # Create tag and push to origin
-  add_tag(version: next_version)
+  # # Create tag and push to origin
+  # add_tag(version: next_version)
 
-  # Publish to Pub.dev
-  publish_plugins
+  # # Publish to Pub.dev
+  # publish_plugins
 end
 
 desc 'Create a release version by committing a changelog, pushing a tag to GitHub, and publishing plugins to Pub.dev'
@@ -55,12 +55,15 @@ desc 'Increment versions'
 private_lane :increment_versions do |options|
   version = options[:version].to_s
   puts version
-  Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
-    next if plugin == '.' or plugin == '..'
+  Dir.chdir('..') do
+    Dir.foreach("./packages/") do |plugin|
+      next if plugin == '.' or plugin == '..'
 
-    pubspec = File.join('packages', plugin, 'pubspec.yaml')
-    UI.message("Incrementing version for #{pubspec}")
-    set_key_value(file: pubspec, key: 'version', value: version)
+      plugin_path = File.join('packages', plugin)
+      pubspec = File.expand_path('pubspec.yaml', plugin_path)
+      UI.message("Incrementing version for #{pubspec}")
+      set_key_value(file: pubspec, key: 'version', value: version)
+    end
   end
 end
 
@@ -68,10 +71,11 @@ desc 'Write changelog for each plugin package'
 private_lane :write_plugin_changelogs do |options|
   changelog = options[:changelog]
   write_changelog(changelog: changelog, path: 'CHANGELOG.md')
-  Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
-    next if plugin == '.' or plugin == '..'
-
-    FileUtils.cp('CHANGELOG.md', File.join('packages', plugin))
+  Dir.chdir('..') do
+    Dir.foreach("./packages/") do |plugin|
+      next if plugin == '.' or plugin == '..'
+      FileUtils.cp('CHANGELOG.md', File.join('packages', plugin))
+    end
   end
 end
 
@@ -114,11 +118,13 @@ end
 
 desc 'Publish plugins'
 private_lane :publish_plugins do
-  Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
-    next if plugin == '.' or plugin == '..'
+  Dir.chdir('..') do
+    Dir.foreach("./packages/") do |plugin|
+      next if plugin == '.' or plugin == '..'
 
-    Dir.chdir(File.join(ENV['CIRCLE_WORKING_DIRECTORY'], 'packages', plugin)) do
-      sh('flutter', 'pub', 'publish', '--dry-run')
+      Dir.chdir(File.join('packages', plugin)) do
+        sh('flutter', 'pub', 'publish', '--dry-run')
+      end
     end
   end
 end
