@@ -135,10 +135,6 @@ desc 'Post-release'
 private_lane :post_release do |options|
   version = options[:version].to_s
   tag = "v#{version}"
-  plugin_root = File.expand_path("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages")
-
-  commit_message = "chore: finalize release #{version} [skip ci]"
-  sh('git', 'commit', '-am', commit_message)
 
   add_git_tag(tag: tag, force: true)
   push_git_tags(tag: tag, force: true)
