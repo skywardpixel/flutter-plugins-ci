@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.5-preview.4 (2020-08-13)
+
+### Features
+
+- pretend new feature
+
 ## 0.0.5-preview.3 (2020-08-13)
 
 ### Features
