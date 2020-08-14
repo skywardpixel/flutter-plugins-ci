@@ -140,12 +140,7 @@ private_lane :post_release do |options|
   commit_message = "chore: finalize release #{version} [skip ci]"
   sh('git', 'commit', '-am', commit_message)
 
-  write_changelog(changelog: changelog, path: 'CHANGELOG.md')
-
-  Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
-    next if plugin == '.' or plugin == '..'
-    FileUtils.cp('CHANGELOG.md', File.join(ENV['CIRCLE_WORKING_DIRECTORY'], 'packages', plugin))
-  end
+  write_plugin_changelogs(changelog: changelog)
 
   add_git_tag(tag: tag, force: true)
   push_git_tags(tag: tag, force: true)
