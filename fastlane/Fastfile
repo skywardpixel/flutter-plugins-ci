@@ -123,7 +123,8 @@ private_lane :publish_plugins do
       next if plugin == '.' or plugin == '..'
 
       Dir.chdir(File.join('packages', plugin)) do
-        sh('yes' '|' 'flutter', 'pub', 'publish')
+        sh('flutter', 'pub', 'publish', '--dry-run')
+        sh('flutter', 'pub', 'publish', '--force')
       end
     end
   end
