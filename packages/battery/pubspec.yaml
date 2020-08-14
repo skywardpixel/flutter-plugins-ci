@@ -1,6 +1,6 @@
 name: battery
 description: A new Flutter plugin.
-version: 0.1.5-preview.0
+version: 0.1.5
 repository: https://github.com/kaichengyan/flutter-plugins-ci/tree/master/packages/battery
 
 environment:
