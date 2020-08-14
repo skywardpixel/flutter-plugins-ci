@@ -20,13 +20,13 @@ lane :unstable do
   changelog = build_changelog(version: next_version, commits: commits)
   write_plugin_changelogs(changelog: changelog)
 
-  # prerelease_commit(version: next_version)
+  prerelease_commit(version: next_version)
 
   # # Create tag and push to origin
-  # add_tag(version: next_version)
+  add_tag(version: next_version)
 
-  # # Publish to Pub.dev
-  # publish_plugins
+  # Publish to Pub.dev
+  publish_plugins
 end
 
 desc 'Create a release version by committing a changelog, pushing a tag to GitHub, and publishing plugins to Pub.dev'
