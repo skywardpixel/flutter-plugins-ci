@@ -67,10 +67,11 @@ end
 desc 'Write changelog for each plugin package'
 private_lane :write_plugin_changelogs do |options|
   changelog = options[:changelog]
+  write_changelog(changelog: changelog, path: 'CHANGELOG.md')
   Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
     next if plugin == '.' or plugin == '..'
 
-    FileUtil.cp('CHANGELOG.md', File.join('packages', plugin))
+    FileUtils.cp('CHANGELOG.md', File.join('packages', plugin))
   end
 end
 
