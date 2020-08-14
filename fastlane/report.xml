@@ -5,129 +5,24 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.000617">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.000607">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: git fetch --tags" time="0.455768">
+      <testcase classname="fastlane.lanes" name="1: git fetch --tags" time="0.431941">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: git fetch" time="0.448279">
+      <testcase classname="fastlane.lanes" name="2: git fetch" time="0.405938">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: calculate_next_release_version" time="0.028349">
+      <testcase classname="fastlane.lanes" name="3: calculate_next_release_version" time="0.028134">
         
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="04: Switch to increment_versions lane" time="0.000204">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="05: set_key_value" time="0.000719">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="06: set_key_value" time="0.002345">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="07: build_changelog" time="0.000309">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="08: Switch to write_plugin_changelogs lane" time="0.000219">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="09: write_changelog" time="0.000688">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="10: Switch to release_commit lane" time="0.000411">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="11: git config --global user.email fastlane@kyleyan.me" time="0.009053">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="12: git config --global user.name fastlane-bot" time="0.011843">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="13: git commit -am chore:\ release\ 0.1.2\ \[skip\ ci\]" time="0.032134">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="14: git push origin fastlane-release" time="0.710027">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="15: Switch to add_tag lane" time="0.000227">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="16: add_git_tag" time="0.019531">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="17: push_git_tags" time="3.336282">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="18: Switch to publish_plugins lane" time="0.000312">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="19: flutter pub publish --dry-run" time="6.191916">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="20: flutter pub publish --force" time="5.841934">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="21: flutter pub publish --dry-run" time="4.557435">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="22: flutter pub publish --force" time="4.65098">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="23: Switch to post_release lane" time="0.000241">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="24: git commit -am chore:\ finalize\ release\ 0.1.2\ \[skip\ ci\]" time="0.028042">
-        
-          <failure message="/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/fast_file.rb:218:in `sh'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/fast_file.rb:212:in `sh'&#10;Fastfile:141:in `block in parsing_binding'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:204:in `try_switch_to_lane'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:146:in `trigger_action_by_name'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing'&#10;Fastfile:52:in `block in parsing_binding'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/commands_generator.rb:352:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/commands_generator.rb:41:in `start'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/cli_tools_distributor.rb:119:in `take_off'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/fastlane:23:in `load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:63:in `load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:63:in `kernel_load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:28:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:476:in `exec'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor.rb:399:in `dispatch'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:30:in `dispatch'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/base.rb:476:in `start'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:24:in `start'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/exe/bundle:46:in `block in &lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/friendly_errors.rb:123:in `with_friendly_errors'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/exe/bundle:34:in `&lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/bundle:23:in `load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/bundle:23:in `&lt;main&gt;'&#10;&#10;Exit status of command 'git commit -am chore:\ finalize\ release\ 0.1.2\ \[skip\ ci\]' was 1 instead of 0.&#10;On branch fastlane&#10;Your branch is ahead of 'origin/fastlane' by 7 commits.&#10;  (use &quot;git push&quot; to publish your local commits)&#10;&#10;Untracked files:&#10;  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)&#10;	../.envrc&#10;&#10;nothing added to commit but untracked files present (use &quot;git add&quot; to track)&#10;" />
+          <failure message="/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:229:in `chdir'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing'&#10;Fastfile:34:in `block in parsing_binding'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/commands_generator.rb:352:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/commands_generator.rb:41:in `start'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/fastlane/lib/fastlane/cli_tools_distributor.rb:119:in `take_off'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/fastlane-2.156.0/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/fastlane:23:in `load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:63:in `load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:63:in `kernel_load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:28:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:476:in `exec'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor.rb:399:in `dispatch'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:30:in `dispatch'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/base.rb:476:in `start'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:24:in `start'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/exe/bundle:46:in `block in &lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/friendly_errors.rb:123:in `with_friendly_errors'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/exe/bundle:34:in `&lt;top (required)&gt;'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/bundle:23:in `load'&#10;/Users/kyleyan/.rbenv/versions/2.6.5/bin/bundle:23:in `&lt;main&gt;'&#10;&#10;No commits found since last release" />
         
       </testcase>
     
