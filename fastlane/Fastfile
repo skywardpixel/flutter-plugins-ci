@@ -25,7 +25,7 @@ lane :unstable do
   add_tag(version: next_version)
 
   # Publish to Pub.dev
-  release_plugins
+  publish_plugins
 end
 
 desc 'Create a release version by committing a changelog, pushing a tag to GitHub, and publishing plugins to Pub.dev'
@@ -45,7 +45,7 @@ lane :stable do
   add_tag(version: next_version)
 
   # Publish plugins
-  release_plugins
+  publish_plugins
 
   post_release(version: next_version, changelog: changelog)
 end
@@ -100,12 +100,12 @@ private_lane :add_tag do |options|
   push_git_tags(tag: next_tag)
 end
 
-desc 'Release plugins'
-private_lane :release_plugins do
+desc 'Publish plugins'
+private_lane :publish_plugins do
   Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
     next if plugin == '.' or plugin == '..'
 
-    Dir.chdir(File.join('packages', plugin)) do
+    Dir.chdir(File.join(ENV['CIRCLE_WORKING_DIRECTORY'], 'packages', plugin)) do
       sh('flutter', 'pub', 'publish', '--dry-run')
     end
   end

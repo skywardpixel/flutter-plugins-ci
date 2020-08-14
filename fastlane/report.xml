@@ -5,37 +5,92 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.000566">
+      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.000449">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: git fetch --tags" time="0.434227">
+      <testcase classname="fastlane.lanes" name="01: git fetch --tags" time="0.461905">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: git fetch" time="0.467416">
+      <testcase classname="fastlane.lanes" name="02: git fetch" time="0.46144">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: calculate_next_canary_version" time="0.012686">
+      <testcase classname="fastlane.lanes" name="03: calculate_next_canary_version" time="0.013865">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: Switch to increment_versions lane" time="0.000245">
+      <testcase classname="fastlane.lanes" name="04: Switch to increment_versions lane" time="0.000254">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: set_key_value" time="0.000657">
+      <testcase classname="fastlane.lanes" name="05: set_key_value" time="0.002142">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: set_key_value" time="0.000534">
+      <testcase classname="fastlane.lanes" name="06: set_key_value" time="0.000696">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: calculate_next_release_version" time="0.024509">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: build_changelog" time="0.000324">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: Switch to prerelease_commit lane" time="0.000162">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: git config --global user.email fastlane@kyleyan.me" time="0.009876">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: git config --global user.name fastlane-bot" time="0.009131">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="12: git commit -am chore:\ pre-release\ 0.0.3-dev.8\ \[skip\ ci\]" time="0.039211">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="13: git push origin fastlane" time="3.424341">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="14: Switch to add_tag lane" time="0.000447">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="15: add_git_tag" time="0.019145">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="16: push_git_tags" time="3.500901">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="17: Switch to release_plugins lane" time="0.00024">
         
       </testcase>
     
