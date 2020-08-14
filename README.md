@@ -10,7 +10,7 @@ Develop each plugin just as you would for a normal plugin.
 
 For Android, add a `test/kotlin` directory under `android/src`, and modify
 `android/build.gradle` to add test dependencies like JUnit and Mockito.
-The tests then can be added under `test/kotlin`. 
+The tests then can be added under `test/kotlin`.
 Typically, put your tests in the same package as the source file (for package
 level access), and add package statements to the test source files as necessary.
 
@@ -59,3 +59,7 @@ Currently, a new job is run for each of Flutter, Android and iOS for every plugi
 and Flutter has to be downloaded for every job.
 
 I'm working on speeding up the testing, by merging jobs and reusing resources.
+
+## Fastlane
+
+Experimenting with Fastlane.
