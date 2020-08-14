@@ -98,6 +98,13 @@ end
 
 desc 'Release plugins'
 private_lane :release_plugins do
+  Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
+    next if plugin == '.' or plugin == '..'
+
+    Dir.chdir(File.join('packages', plugin)) do
+      sh('flutter', 'pub', 'publish', '--dry-run')
+    end
+  end
 end
 
 desc 'Post-release'
