@@ -1,6 +1,6 @@
 name: battery
 description: A new Flutter plugin.
-version: 0.0.3
+version: 0.0.3-dev.8
 authors:
   - Kyle Yan <kaicheng.yan.1997@gmail.com>
   - Flutter Team <flutter.dev>

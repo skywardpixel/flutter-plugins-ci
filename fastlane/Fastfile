@@ -9,14 +9,14 @@ end
 
 desc 'Create a pre-release version by pushing a tag to GitHub, and publishing plugins to Pub.dev'
 lane :unstable do
-  next_version = calculate_next_canary_version('preview')
+  next_version = calculate_next_canary_version(prerelease_identifier: 'preview')
   UI.message("Releasing unstable version: #{next_version}")
 
   # Increment all pubspecs
   increment_versions(version: next_version)
 
   # Use the commits to build a change log since last release
-  _, commits = calculate_next_release_versio
+  _, commits = calculate_next_release_version
   changelog = build_changelog(version: next_version, commits: commits)
 
   prerelease_commit(version: next_version)
