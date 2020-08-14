@@ -18,6 +18,7 @@ lane :unstable do
   # Use the commits to build a change log since last release
   _, commits = calculate_next_release_version
   changelog = build_changelog(version: next_version, commits: commits)
+  write_changelog(changelog: changelog, path: 'CHANGELOG.md')
 
   prerelease_commit(version: next_version)
 
@@ -111,7 +112,7 @@ private_lane :publish_plugins do
   end
 end
 
-desc 'Post-pre-release'
+desc 'Post-prerelease'
 private_lane :post_prerelease do |options|
   version = options[:version].to_s
   changelog = options[:changelog]
@@ -133,31 +134,6 @@ private_lane :post_prerelease do |options|
 
   # push to origin
   sh('git', 'push', 'origin', 'fastlane')
-end
-
-desc 'Post-release'
-private_lane :post_release do |options|
-  version = options[:version].to_s
-  changelog = options[:changelog]
-  tag = "v#{version}"
-  plugin_root = File.expand_path("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages")
-
-  commit_message = "chore: finalize release #{version} [skip ci]"
-  sh('git', 'commit', '-am', commit_message)
-
-  write_changelog(changelog: changelog, path: 'CHANGELOG.md')
-
-  Dir.foreach("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages/") do |plugin|
-    next if plugin == '.' or plugin == '..'
-    FileUtils.cp('CHANGELOG.md', File.join(ENV['CIRCLE_WORKING_DIRECTORY'], 'packages', plugin))
-  end
-
-  add_git_tag(tag: tag, force: true)
-  push_git_tags(tag: tag, force: true)
-
-  # push to origin
-  sh('git', 'push', 'origin', 'release')
-  sh('git', 'push', 'origin', 'release:main')
 end
 
 def with_retry(retries = 5, wait = 10)
