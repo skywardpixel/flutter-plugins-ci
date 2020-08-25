@@ -1,10 +1,7 @@
 name: battery
 description: A new Flutter plugin.
-version: 0.0.2+1-unstable
-authors:
-  - Kyle Yan <kaicheng.yan.1997@gmail.com>
-  - Flutter Team <flutter.dev>
-homepage: https://github.com/kaichengyan/flutter-plugins-ci/packages/battery/
+version: 0.1.5
+repository: https://github.com/kaichengyan/flutter-plugins-ci/tree/master/packages/battery
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -14,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   meta: ^1.1.8
+  forty_two: ^0.1.5
 
 dev_dependencies:
   flutter_test:

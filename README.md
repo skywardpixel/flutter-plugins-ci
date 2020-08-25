@@ -30,7 +30,7 @@ dependencies {
 
 If the `mockito-inline` dependency doesn't solve the issue with final classes, try creating a file
 `packages/<plugin_name>/android/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker`
-with a single line: 
+with a single line:
 
 ```
 mock-maker-inline
