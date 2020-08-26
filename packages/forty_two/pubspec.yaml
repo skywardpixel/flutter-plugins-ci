@@ -1,6 +1,6 @@
 name: forty_two
 description: A new flutter plugin project.
-version: 0.1.6
+version: 0.1.7-dev.0
 repository: https://github.com/kaichengyan/flutter-plugins-ci/tree/master/packages/forty_two
 
 environment:
