@@ -22,7 +22,7 @@ lane :unstable do
 
   prerelease_commit(version: next_version)
 
-  # # Create tag and push to origin
+  # Create tag and push to origin
   add_tag(version: next_version)
 
   # Publish to Pub.dev
