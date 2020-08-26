@@ -9,7 +9,7 @@ end
 
 desc 'Create a pre-release version by pushing a tag to GitHub, and publishing plugins to Pub.dev'
 lane :unstable do
-  next_version = calculate_next_canary_version(prerelease_identifier: 'preview')
+  next_version = calculate_next_canary_version(prerelease_identifier: 'dev')
   UI.message("Releasing unstable version: #{next_version}")
 
   # Increment all pubspecs
@@ -84,28 +84,28 @@ desc 'Commit and push updated pre-release version'
 private_lane :prerelease_commit do |options|
   next_version = options[:version]
 
-  sh('git', 'config', '--global', 'user.email', ENV['GITHUB_EMAIL'])
-  sh('git', 'config', '--global', 'user.name', ENV['GITHUB_USER'])
+  sh('git', 'config', 'user.email', ENV['GITHUB_EMAIL'])
+  sh('git', 'config', 'user.name', ENV['GITHUB_USER'])
 
   commit_message = "chore: pre-release #{next_version} [skip ci]"
   sh('git', 'commit', '-am', commit_message)
 
   # push to origin
-  sh('git', 'push', 'origin', 'fastlane')
+  # sh('git', 'push', 'origin', 'master')
 end
 
 desc 'Commit and push updated release version'
 private_lane :release_commit do |options|
   next_version = options[:version]
 
-  sh('git', 'config', '--global', 'user.email', ENV['GITHUB_EMAIL'])
-  sh('git', 'config', '--global', 'user.name', ENV['GITHUB_USER'])
+  sh('git', 'config', 'user.email', ENV['GITHUB_EMAIL'])
+  sh('git', 'config', 'user.name', ENV['GITHUB_USER'])
 
   commit_message = "chore: release #{next_version} [skip ci]"
   sh('git', 'commit', '-am', commit_message)
 
   # push to origin
-  sh('git', 'push', 'origin', 'fastlane-release')
+  # sh('git', 'push', 'origin', 'release')
 end
 
 desc 'Tag in git and push to GitHub'
@@ -114,7 +114,7 @@ private_lane :add_tag do |options|
   next_tag = "v#{next_version}"
 
   add_git_tag(tag: next_tag)
-  push_git_tags(tag: next_tag)
+  # push_git_tags(tag: next_tag)
 end
 
 desc 'Publish plugins'
@@ -125,7 +125,7 @@ private_lane :publish_plugins do
 
       Dir.chdir(File.join('packages', plugin)) do
         sh('flutter', 'pub', 'publish', '--dry-run')
-        sh('flutter', 'pub', 'publish', '--force')
+        # sh('flutter', 'pub', 'publish', '--force')
       end
     end
   end
@@ -137,11 +137,11 @@ private_lane :post_release do |options|
   tag = "v#{version}"
 
   add_git_tag(tag: tag, force: true)
-  push_git_tags(tag: tag, force: true)
+  # push_git_tags(tag: tag, force: true)
 
   # push to origin
-  sh('git', 'push', 'origin', 'fastlane-release')
-  sh('git', 'push', 'origin', 'fastlane-release:fastlane')
+  # sh('git', 'push', 'origin', 'release')
+  # sh('git', 'push', 'origin', 'release:master')
 end
 
 def with_retry(retries = 5, wait = 10)
