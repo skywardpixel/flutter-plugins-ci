@@ -90,8 +90,8 @@ private_lane :prerelease_commit do |options|
   commit_message = "chore: pre-release #{next_version} [skip ci]"
   sh('git', 'commit', '-am', commit_message)
 
-  # push to origin
-  # sh('git', 'push', 'origin', 'master')
+  push to origin
+  sh('git', 'push', 'origin', 'master')
 end
 
 desc 'Commit and push updated release version'
@@ -137,11 +137,11 @@ private_lane :post_release do |options|
   tag = "v#{version}"
 
   add_git_tag(tag: tag, force: true)
-  # push_git_tags(tag: tag, force: true)
+  push_git_tags(tag: tag, force: true)
 
   # push to origin
-  # sh('git', 'push', 'origin', 'release')
-  # sh('git', 'push', 'origin', 'release:master')
+  sh('git', 'push', 'origin', 'release')
+  sh('git', 'push', 'origin', 'release:master')
 end
 
 def with_retry(retries = 5, wait = 10)

@@ -5,122 +5,64 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.000448">
+      <testcase classname="fastlane.lanes" name="00: opt_out_usage" time="0.000201362">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: git fetch --tags" time="0.423945">
+      <testcase classname="fastlane.lanes" name="01: git fetch --tags" time="0.52071848">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: git fetch" time="0.46393">
+      <testcase classname="fastlane.lanes" name="02: git fetch" time="0.463672948">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: calculate_next_canary_version" time="0.013717">
+      <testcase classname="fastlane.lanes" name="03: calculate_next_release_version" time="0.014895756">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: Switch to increment_versions lane" time="0.000302">
+      <testcase classname="fastlane.lanes" name="04: Switch to increment_versions lane" time="0.000202005">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: set_key_value" time="0.000687">
+      <testcase classname="fastlane.lanes" name="05: set_key_value" time="0.000658475">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: set_key_value" time="0.000577">
+      <testcase classname="fastlane.lanes" name="06: set_key_value" time="0.000507157">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: calculate_next_release_version" time="0.02858">
+      <testcase classname="fastlane.lanes" name="07: build_changelog" time="0.000365224">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="08: build_changelog" time="0.000522">
+      <testcase classname="fastlane.lanes" name="08: Switch to write_plugin_changelogs lane" time="0.000240128">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="09: Switch to write_plugin_changelogs lane" time="0.00025">
+      <testcase classname="fastlane.lanes" name="09: write_changelog" time="0.000443514">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: write_changelog" time="0.000593">
+      <testcase classname="fastlane.lanes" name="10: Switch to release_commit lane" time="0.000255063">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="11: Switch to prerelease_commit lane" time="0.000307">
+      <testcase classname="fastlane.lanes" name="11: git config user.email ''" time="0.000657885">
         
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="12: git config --global user.email fastlane@kyleyan.me" time="0.012335">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="13: git config --global user.name fastlane-bot" time="0.009753">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="14: git commit -am chore:\ pre-release\ 0.1.5-preview.0\ \[skip\ ci\]" time="0.031016">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="15: git push origin fastlane" time="3.806346">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="16: Switch to add_tag lane" time="0.000475">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="17: add_git_tag" time="0.016111">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="18: push_git_tags" time="3.353454">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="19: Switch to publish_plugins lane" time="0.000263">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="20: flutter pub publish --dry-run" time="6.472457">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="21: flutter pub publish --force" time="6.172076">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="22: flutter pub publish --dry-run" time="4.567666">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="23: flutter pub publish --force" time="5.179932">
+          <failure message="/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/fast_file.rb:218:in `sh'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/fast_file.rb:212:in `sh'&#10;Fastfile:101:in `block in parsing_binding'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/runner.rb:204:in `try_switch_to_lane'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/runner.rb:146:in `trigger_action_by_name'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing'&#10;Fastfile:44:in `block in parsing_binding'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/commands_generator.rb:352:in `run'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/commands_generator.rb:41:in `start'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/fastlane/lib/fastlane/cli_tools_distributor.rb:119:in `take_off'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/fastlane-2.156.1/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/home/kyleyan/.rbenv/versions/2.6.6/bin/fastlane:23:in `load'&#10;/home/kyleyan/.rbenv/versions/2.6.6/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:63:in `load'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:63:in `kernel_load'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli/exec.rb:28:in `run'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:476:in `exec'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor.rb:399:in `dispatch'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:30:in `dispatch'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/vendor/thor/lib/thor/base.rb:476:in `start'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/cli.rb:24:in `start'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/exe/bundle:46:in `block in &lt;top (required)&gt;'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/lib/bundler/friendly_errors.rb:123:in `with_friendly_errors'&#10;/home/kyleyan/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/bundler-2.1.4/exe/bundle:34:in `&lt;top (required)&gt;'&#10;/home/kyleyan/.rbenv/versions/2.6.6/bin/bundle:23:in `load'&#10;/home/kyleyan/.rbenv/versions/2.6.6/bin/bundle:23:in `&lt;main&gt;'&#10;&#10;no implicit conversion of nil into String" />
         
       </testcase>
     
