@@ -150,14 +150,8 @@ lane :publish_plugins do
     next if plugin == '.' or plugin == '..'
 
     Dir.chdir(File.expand_path(plugin, packages_root)) do
-      begin
-        sh('flutter', 'pub', 'publish', '--dry-run')
-        # might need `--force` to automate
-        # leaving it manual for testing
-        sh('flutter', 'pub', 'publish')
-      rescue
-        # Ignore errors for now
-      end
+      sh('flutter', 'pub', 'publish', '--dry-run')
+      sh('flutter', 'pub', 'publish', '--force')
     end
   end
 end
