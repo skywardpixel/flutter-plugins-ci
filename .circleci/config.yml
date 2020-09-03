@@ -236,6 +236,11 @@ jobs:
             source $BASH_ENV
             gem install bundler
       - run: bundle install
+      - run:
+          name: Configure PUB_HOSTED_URL
+          command: |
+            echo 'export PUB_HOSTED_URL="http://pub.kyleyan.io"' >> $BASH_ENV
+            source $BASH_ENV
       - run: bundle exec fastlane publish_plugins
 
 releasable_branches: &releasable_branches
