@@ -149,9 +149,15 @@ lane :publish_plugins do
   Dir.foreach(packages_root) do |plugin|
     next if plugin == '.' or plugin == '..'
 
+    UI.message('Doing a dry run of publishing...')
+
     Dir.chdir(File.expand_path(plugin, packages_root)) do
       sh('flutter', 'pub', 'publish', '--dry-run')
-      sh('exit', '1')
+    end
+
+    UI.message('Now actually publishing...')
+
+    Dir.chdir(File.expand_path(plugin, packages_root)) do
       sh('flutter', 'pub', 'publish', '--force')
     end
   end
