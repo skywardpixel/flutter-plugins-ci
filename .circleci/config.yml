@@ -223,11 +223,14 @@ jobs:
           fi
 
   deploy_dummy:
-    executor: docker-executor
+    docker:
+      - image: circleci/ruby:2.6.6
     steps:
-      - run: echo "Dummy deploy"
+      - install_flutter
+      - checkout
       # - write_oauth_tokens
-      - run: fastlane publish_plugins
+      - run: bundle install
+      - run: bundle exec fastlane publish_plugins
 
 releasable_branches: &releasable_branches
   branches:
