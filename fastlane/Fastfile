@@ -154,7 +154,7 @@ lane :publish_plugins do
         sh('flutter', 'pub', 'publish', '--dry-run')
         # might need `--force` to automate
         # leaving it manual for testing
-        # sh('flutter', 'pub', 'publish')
+        sh('flutter', 'pub', 'publish')
       rescue
         # Ignore errors for now
       end
