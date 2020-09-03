@@ -228,7 +228,7 @@ jobs:
     steps:
       - install_flutter
       - checkout
-      # - write_oauth_tokens
+      - write_oauth_tokens
       - run: gem install bundler
       - run: bundle install
       - run:
