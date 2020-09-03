@@ -36,7 +36,7 @@ commands:
     steps:
       - run: echo "$CI_PULL_REQUEST"
 
-  write_pub_token:
+  write_oauth_tokens:
     description:
       Write OAuth credentials to ~/.pub-cache/credentials.json
     steps:
