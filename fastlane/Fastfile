@@ -144,7 +144,7 @@ private_lane :add_tag do |options|
 end
 
 desc 'Publish plugins'
-private_lane :publish_plugins do
+lane :publish_plugins do
   packages_root = File.expand_path("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages")
   Dir.foreach(packages_root) do |plugin|
     next if plugin == '.' or plugin == '..'
