@@ -146,16 +146,19 @@ end
 desc 'Publish plugins'
 lane :publish_plugins do
   packages_root = File.expand_path("#{ENV['CIRCLE_WORKING_DIRECTORY']}/packages")
+
+  UI.message('Doing a dry run of publishing...')
   Dir.foreach(packages_root) do |plugin|
     next if plugin == '.' or plugin == '..'
-
-    UI.message('Doing a dry run of publishing...')
 
     Dir.chdir(File.expand_path(plugin, packages_root)) do
       sh('flutter', 'pub', 'publish', '--dry-run')
     end
+  end
 
-    UI.message('Now actually publishing...')
+  UI.message('Now actually publishing...')
+  Dir.foreach(packages_root) do |plugin|
+    next if plugin == '.' or plugin == '..'
 
     Dir.chdir(File.expand_path(plugin, packages_root)) do
       sh('flutter', 'pub', 'publish', '--force')
